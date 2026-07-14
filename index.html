@@ -15,6 +15,9 @@
       content="A bold one-page portfolio for care coordination, client support, scheduling operations, and AI-assisted workflow leadership."
     />
     <meta property="og:type" content="website" />
+    <script>
+      document.documentElement.classList.add("motion-ready");
+    </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -32,30 +35,30 @@
 
     <main class="portfolio-page">
       <section class="poster" aria-label="Holly Arora portfolio">
-        <div class="poster-name" aria-hidden="true">
+        <div class="poster-name" data-parallax="-0.08" aria-hidden="true">
           <span>HOLLY</span>
           <span>ARORA</span>
         </div>
         <p class="side-label">Client Care Coordinator</p>
-        <div class="neon-mark" aria-hidden="true"></div>
+        <div class="neon-mark" data-parallax="0.14" aria-hidden="true"></div>
 
-        <div class="hero-copy">
+        <div class="hero-copy reveal-item" data-animate>
           <p class="eyebrow">Care Coordination & Client Experience</p>
           <h1>Care coordination leader</h1>
         </div>
 
-        <div class="portrait-wrap" aria-label="Holly Arora profile photo">
+        <div class="portrait-wrap reveal-item" data-animate data-parallax="0.06" aria-label="Holly Arora profile photo">
           <div class="portrait-halo" aria-hidden="true"></div>
           <img
-            src="assets/holly-arora-professional.png"
+            src="assets/holly-arora-headshot.png"
             alt="Holly Arora"
-            width="941"
-            height="1672"
+            width="1254"
+            height="1254"
           />
           <div class="open-badge">Open to work</div>
         </div>
 
-        <article class="panel dna-panel" id="dna">
+        <article class="panel dna-panel reveal-item" id="dna" data-animate data-parallax="-0.03">
           <p class="panel-kicker">Service DNA</p>
           <h2>Care, clarity, follow-through.</h2>
           <div class="metric-row">
@@ -72,7 +75,7 @@
           </p>
         </article>
 
-        <article class="panel skills-panel">
+        <article class="panel skills-panel reveal-item" data-animate data-parallax="0.04">
           <p class="panel-kicker">Skills</p>
           <ul class="skill-list" aria-label="Core skills">
             <li>Caregiver scheduling</li>
@@ -84,7 +87,7 @@
           </ul>
         </article>
 
-        <article class="panel tools-panel">
+        <article class="panel tools-panel reveal-item" data-animate data-parallax="-0.02">
           <p class="panel-kicker">Tool Stack</p>
           <div class="tool-grid" aria-label="Tools">
             <span>WellSky</span>
@@ -96,7 +99,7 @@
           </div>
         </article>
 
-        <article class="panel journey-panel" id="journey">
+        <article class="panel journey-panel reveal-item" id="journey" data-animate data-parallax="0.03">
           <p class="panel-kicker">Career Journey</p>
           <h2>Healthcare coordination backed by hospitality leadership.</h2>
           <div class="role">
@@ -116,7 +119,7 @@
           </div>
         </article>
 
-        <article class="panel contact-panel" id="contact">
+        <article class="panel contact-panel reveal-item" id="contact" data-animate>
           <p class="panel-kicker">Now</p>
           <h2>Available for care coordination, scheduling, client support, and remote service roles.</h2>
           <div class="contact-links">
@@ -137,5 +140,6 @@
         LinkedIn Profile
       </a>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
