@@ -1,8 +1,28 @@
 const motionAllowed = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const animatedItems = document.querySelectorAll("[data-animate]");
 const parallaxItems = document.querySelectorAll("[data-parallax]");
+const flipCards = document.querySelectorAll("[data-flip-card]");
 const root = document.documentElement;
-const poster = document.querySelector(".poster");
+const motionStage = document.querySelector(".resume-hero");
+
+if (motionAllowed) {
+  root.classList.add("motion-ready");
+}
+
+flipCards.forEach((card) => {
+  const toggle = card.querySelector("[data-flip-toggle]");
+  const back = card.querySelector(".portrait-back");
+
+  toggle?.addEventListener("click", () => {
+    const flipped = card.classList.toggle("is-flipped");
+    toggle.setAttribute("aria-pressed", String(flipped));
+    toggle.setAttribute(
+      "aria-label",
+      flipped ? "Show Holly's portrait" : "Show Holly's key career stats",
+    );
+    back?.setAttribute("aria-hidden", String(!flipped));
+  });
+});
 
 if (motionAllowed) {
   const observer = new IntersectionObserver(
@@ -61,11 +81,11 @@ if (motionAllowed) {
     { passive: true },
   );
 
-  if (poster) {
-    poster.addEventListener(
+  if (motionStage) {
+    motionStage.addEventListener(
       "pointermove",
       (event) => {
-        const rect = poster.getBoundingClientRect();
+        const rect = motionStage.getBoundingClientRect();
         pointerX = (event.clientX - rect.left) / rect.width - 0.5;
         pointerY = (event.clientY - rect.top) / rect.height - 0.5;
         requestMotionUpdate();
@@ -73,7 +93,7 @@ if (motionAllowed) {
       { passive: true },
     );
 
-    poster.addEventListener("pointerleave", () => {
+    motionStage.addEventListener("pointerleave", () => {
       pointerX = 0;
       pointerY = 0;
       requestMotionUpdate();
